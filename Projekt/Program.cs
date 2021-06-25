@@ -16,7 +16,12 @@ namespace Projekt
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainView());
+
+            ConfigView configView = new ConfigView();
+            ConfigPresenter configPresenter = new ConfigPresenter(configView);
+            //Nur zu Testzwecken
+            configPresenter.InitializeConfig();
+            Application.Run();
         }
     }
 }
