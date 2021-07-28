@@ -15,7 +15,7 @@ namespace Projekt
         event EventHandler ShowRecovered;
         event EventHandler ShowConfigView;
 
-        void updateChart();
+        void UpdateChart(List<List<string[]>> data);
 
     }
 }

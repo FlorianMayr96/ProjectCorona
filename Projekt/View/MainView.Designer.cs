@@ -40,7 +40,7 @@
             // 
             // Chart
             // 
-            this.Chart.Location = new System.Drawing.Point(42, 86);
+            this.Chart.Location = new System.Drawing.Point(42, 74);
             this.Chart.Name = "Chart";
             this.Chart.Size = new System.Drawing.Size(545, 336);
             this.Chart.TabIndex = 1;
@@ -54,7 +54,7 @@
             this.btn_CovidCases.TabIndex = 2;
             this.btn_CovidCases.Text = "CovidCases";
             this.btn_CovidCases.UseVisualStyleBackColor = true;
-            this.btn_CovidCases.Click += new System.EventHandler(this.btn_ConfirmedCases_Click);
+            this.btn_CovidCases.Click += new System.EventHandler(this.btn_CovidCases_Click);
             // 
             // btn_Deaths
             // 
@@ -64,6 +64,7 @@
             this.btn_Deaths.TabIndex = 3;
             this.btn_Deaths.Text = "Deaths";
             this.btn_Deaths.UseVisualStyleBackColor = true;
+            this.btn_Deaths.Click += new System.EventHandler(this.btn_Deaths_Click);
             // 
             // btn_Tests
             // 
@@ -73,6 +74,7 @@
             this.btn_Tests.TabIndex = 4;
             this.btn_Tests.Text = "Tests";
             this.btn_Tests.UseVisualStyleBackColor = true;
+            this.btn_Tests.Click += new System.EventHandler(this.btn_Tests_Click);
             // 
             // btn_IntensiveStation
             // 
@@ -82,6 +84,7 @@
             this.btn_IntensiveStation.TabIndex = 5;
             this.btn_IntensiveStation.Text = "IntensiveStation";
             this.btn_IntensiveStation.UseVisualStyleBackColor = true;
+            this.btn_IntensiveStation.Click += new System.EventHandler(this.btn_IntensiveStation_Click);
             // 
             // btn_Recovered
             // 
@@ -91,6 +94,7 @@
             this.btn_Recovered.TabIndex = 6;
             this.btn_Recovered.Text = "Recovered";
             this.btn_Recovered.UseVisualStyleBackColor = true;
+            this.btn_Recovered.Click += new System.EventHandler(this.btn_Recovered_Click);
             // 
             // btn_Config
             // 
@@ -100,11 +104,12 @@
             this.btn_Config.TabIndex = 7;
             this.btn_Config.Text = "Config";
             this.btn_Config.UseVisualStyleBackColor = true;
+            this.btn_Config.Click += new System.EventHandler(this.btn_Config_Click);
             // 
             // lbCase
             // 
             this.lbCase.AutoSize = true;
-            this.lbCase.Location = new System.Drawing.Point(39, 9);
+            this.lbCase.Location = new System.Drawing.Point(39, 18);
             this.lbCase.Name = "lbCase";
             this.lbCase.Size = new System.Drawing.Size(38, 17);
             this.lbCase.TabIndex = 8;

@@ -20,20 +20,19 @@ namespace Projekt
             InitializeComponent();
         }
 
-        public event EventHandler ShowConfirmedCases;
+        public event EventHandler ShowCovidCases;
         public event EventHandler ShowDeaths;
         public event EventHandler ShowTests;
         public event EventHandler ShowIntensiveStation;
         public event EventHandler ShowRecovered;
         public event EventHandler ShowConfigView;
+        public event EventHandler ShowConfirmedCases;
 
-        public void updateChart()
-        {
-            throw new NotImplementedException();
-        }
+       
 
-        public void UpdateView(List<List<string[]>> data)
+        public void UpdateChart(List<List<string[]>> data)
         {
+
             // Das List Array wird übergeben, es muss noch statt double[] ein Objekt eingesetzt werden!!
             Chart.Series.Clear();
             Chart.AxisX.Clear();
@@ -88,9 +87,9 @@ namespace Projekt
 
         }
 
-        private void btn_ConfirmedCases_Click(object sender, EventArgs e)
+        private void btn_CovidCases_Click(object sender, EventArgs e)
         {
-            
+            //nur zum Testen!!
             string[] asdf = new string[5];
             asdf[0] = "1";
             asdf[1] = "2";
@@ -112,14 +111,41 @@ namespace Projekt
             data.Add(NÖ);
 
 
-            //Start
+            
+            ShowCovidCases?.Invoke(sender,e);
 
 
+        }
 
-            UpdateView(data);
+        private void btn_Deaths_Click(object sender, EventArgs e)
+        {
+            ShowDeaths?.Invoke(sender,e);
 
+        }
 
+        private void btn_Tests_Click(object sender, EventArgs e)
+        {
+            ShowTests?.Invoke(sender, e);
+        }
 
+        private void btn_IntensiveStation_Click(object sender, EventArgs e)
+        {
+            ShowIntensiveStation?.Invoke(sender, e);
+        }
+
+        private void btn_Recovered_Click(object sender, EventArgs e)
+        {
+            ShowRecovered?.Invoke(sender, e);
+        }
+
+        private void btn_Config_Click(object sender, EventArgs e)
+        {
+            ShowConfigView?.Invoke(sender, e);
+        }
+
+        public void updateChart(List<List<string[]>> data)
+        {
+            throw new NotImplementedException();
         }
     }
 }
