@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace Projekt
 {
-    class MainModel
+    public class MainModel
     {
+        //der Datentyp string der Liste gehört noch geändert!!!
+
+        List<string> countryData = new List<string>();
+
+
     }
 }

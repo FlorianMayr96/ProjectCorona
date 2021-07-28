@@ -6,7 +6,23 @@ using System.Threading.Tasks;
 
 namespace Projekt
 {
-    class MainPresenter
+    public class MainPresenter
     {
+        IView _view;
+        MainModel _mainModel;
+        ConfigPresenter _configPresenter;
+
+
+        public MainPresenter(IView view, MainModel mainModel, ConfigPresenter configPresenter)
+        {
+            _view = view;
+            _mainModel = mainModel;
+            _configPresenter = configPresenter;
+
+        }
+
+
+
+
     }
 }
