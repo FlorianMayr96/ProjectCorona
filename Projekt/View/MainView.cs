@@ -20,15 +20,8 @@ namespace Projekt
             InitializeComponent();
         }
 
-        public event EventHandler ShowCovidCases;
-        public event EventHandler ShowDeaths;
-        public event EventHandler ShowTests;
-        public event EventHandler ShowIntensiveStation;
-        public event EventHandler ShowRecovered;
+        public event EventHandler<string> SwitchChart;
         public event EventHandler ShowConfigView;
-        public event EventHandler ShowConfirmedCases;
-
-       
 
         public void UpdateChart(List<List<string[]>> data)
         {
@@ -112,30 +105,30 @@ namespace Projekt
 
 
             
-            ShowCovidCases?.Invoke(sender,e);
+            SwitchChart?.Invoke(sender,"CovidCases");
 
 
         }
 
         private void btn_Deaths_Click(object sender, EventArgs e)
         {
-            ShowDeaths?.Invoke(sender,e);
+            SwitchChart?.Invoke(sender, "Deaths");
 
         }
 
         private void btn_Tests_Click(object sender, EventArgs e)
         {
-            ShowTests?.Invoke(sender, e);
+            SwitchChart?.Invoke(sender, "Tests");
         }
 
         private void btn_IntensiveStation_Click(object sender, EventArgs e)
         {
-            ShowIntensiveStation?.Invoke(sender, e);
+            SwitchChart?.Invoke(sender, "IntensiveStation");
         }
 
         private void btn_Recovered_Click(object sender, EventArgs e)
         {
-            ShowRecovered?.Invoke(sender, e);
+            SwitchChart?.Invoke(sender, "Recovered");
         }
 
         private void btn_Config_Click(object sender, EventArgs e)
@@ -143,9 +136,6 @@ namespace Projekt
             ShowConfigView?.Invoke(sender, e);
         }
 
-        public void updateChart(List<List<string[]>> data)
-        {
-            throw new NotImplementedException();
-        }
+        
     }
 }
