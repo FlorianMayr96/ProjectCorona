@@ -33,7 +33,9 @@
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnImport = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
+            this.btnRefresh = new System.Windows.Forms.Button();
             this.listViewCountries = new System.Windows.Forms.ListView();
+            this.ColCountries = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // tbCountryInput
@@ -83,14 +85,37 @@
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
+            // btnRefresh
+            // 
+            this.btnRefresh.Location = new System.Drawing.Point(505, 460);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(319, 67);
+            this.btnRefresh.TabIndex = 7;
+            this.btnRefresh.Text = "Aktualisieren";
+            this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            // 
             // listViewCountries
             // 
+            this.listViewCountries.AllowColumnReorder = true;
+            this.listViewCountries.AllowDrop = true;
+            this.listViewCountries.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.ColCountries});
+            this.listViewCountries.FullRowSelect = true;
+            this.listViewCountries.GridLines = true;
             this.listViewCountries.HideSelection = false;
-            this.listViewCountries.Location = new System.Drawing.Point(48, 132);
+            this.listViewCountries.Location = new System.Drawing.Point(48, 106);
+            this.listViewCountries.MultiSelect = false;
             this.listViewCountries.Name = "listViewCountries";
-            this.listViewCountries.Size = new System.Drawing.Size(413, 672);
-            this.listViewCountries.TabIndex = 6;
+            this.listViewCountries.Size = new System.Drawing.Size(407, 731);
+            this.listViewCountries.TabIndex = 8;
             this.listViewCountries.UseCompatibleStateImageBehavior = false;
+            this.listViewCountries.View = System.Windows.Forms.View.Details;
+            // 
+            // ColCountries
+            // 
+            this.ColCountries.Text = "Österreichische Bundesländer";
+            this.ColCountries.Width = 360;
             // 
             // ConfigView
             // 
@@ -98,6 +123,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(874, 849);
             this.Controls.Add(this.listViewCountries);
+            this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnImport);
             this.Controls.Add(this.btnDelete);
@@ -117,6 +143,8 @@
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnImport;
         private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.Button btnRefresh;
         private System.Windows.Forms.ListView listViewCountries;
+        private System.Windows.Forms.ColumnHeader ColCountries;
     }
 }

@@ -18,7 +18,8 @@ namespace Projekt
             Application.SetCompatibleTextRenderingDefault(false);
 
             ConfigView configView = new ConfigView();
-            ConfigPresenter configPresenter = new ConfigPresenter(configView);
+            ConfigModel model = new ConfigModel();
+            ConfigPresenter configPresenter = new ConfigPresenter(configView, model);
             //Nur zu Testzwecken
             configPresenter.InitializeConfig();
             Application.Run();

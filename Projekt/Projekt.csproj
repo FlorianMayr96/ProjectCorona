@@ -46,7 +46,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\AllData.cs" />
     <Compile Include="Model\ConfigModel.cs" />
+    <Compile Include="Model\downloader.cs" />
     <Compile Include="Presenter\ConfigPresenter.cs" />
     <Compile Include="View\ConfigView.cs">
       <SubType>Form</SubType>
