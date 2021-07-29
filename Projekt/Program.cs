@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
+
 namespace Projekt
 {
     static class Program
@@ -17,12 +19,28 @@ namespace Projekt
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
+
+
+
+            IView mainView = new MainView();
+            MainModel mainModel = new MainModel();
+            ConfigPresenter configPresenter = new ConfigPresenter();
+
+
+
+
             ConfigView configView = new ConfigView();
             ConfigModel model = new ConfigModel();
             ConfigPresenter configPresenter = new ConfigPresenter(configView, model);
-            //Nur zu Testzwecken
-            configPresenter.InitializeConfig();
-            Application.Run();
+
+
+
+            MainPresenter mainpresenter = new MainPresenter(mainView, mainModel, configPresenter);
+
+
+
+
+            Application.Run(new MainView());
         }
     }
 }
