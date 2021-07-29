@@ -35,7 +35,6 @@
             this.btn_IntensiveStation = new System.Windows.Forms.Button();
             this.btn_Recovered = new System.Windows.Forms.Button();
             this.btn_Config = new System.Windows.Forms.Button();
-            this.lbCase = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // Chart
@@ -106,21 +105,11 @@
             this.btn_Config.UseVisualStyleBackColor = true;
             this.btn_Config.Click += new System.EventHandler(this.btn_Config_Click);
             // 
-            // lbCase
-            // 
-            this.lbCase.AutoSize = true;
-            this.lbCase.Location = new System.Drawing.Point(39, 18);
-            this.lbCase.Name = "lbCase";
-            this.lbCase.Size = new System.Drawing.Size(38, 17);
-            this.lbCase.TabIndex = 8;
-            this.lbCase.Text = "case";
-            // 
             // MainView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.lbCase);
             this.Controls.Add(this.btn_Config);
             this.Controls.Add(this.btn_Recovered);
             this.Controls.Add(this.btn_IntensiveStation);
@@ -129,9 +118,8 @@
             this.Controls.Add(this.btn_CovidCases);
             this.Controls.Add(this.Chart);
             this.Name = "MainView";
-            this.Text = "Form1";
+            this.Text = "MainView";
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -144,7 +132,6 @@
         private System.Windows.Forms.Button btn_IntensiveStation;
         private System.Windows.Forms.Button btn_Recovered;
         private System.Windows.Forms.Button btn_Config;
-        private System.Windows.Forms.Label lbCase;
     }
 }
 

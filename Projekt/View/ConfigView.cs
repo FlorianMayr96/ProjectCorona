@@ -213,6 +213,14 @@ namespace Projekt
 
         }
 
-     
+        private void ConfigView_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Hide();
+        }
+
+        private void ConfigView_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Hide();
+        }
     }
 }

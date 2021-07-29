@@ -3,54 +3,46 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace Projekt
 {
     public class MainModel
     {
-        public event EventHandler<List<List<string[]>>> UpdateView;
-        public event EventHandler<List<List<double>>> ChangeView;
-
-        List<List<string[]>> _data = new List<List<string[]>>();
+        //Event
+        public event EventHandler<List<List<Model.AllData>>> UpdateView;
         
+        //MemberVariable
+        List<List<Model.AllData>> _data = new List<List<Model.AllData>>();
 
-        public void UpdateList(object sender, List<List<string[]>> data)
+        
+        
+        /// <summary>
+        /// Die in der ConfigView ausgewählten daten werden im MainModel übergeben
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="data"></param>
+        public void UpdateList(object sender, List<List<Model.AllData>> data)
         {
             _data = data;
-            UpdateView?.Invoke(sender, data);
+            UpdateView?.Invoke(sender, _data);
         }
-
+        /// <summary>
+        /// Es werden die Daten an den Presenter gesendet und anschließend an die MainView wo der Chart aktualisiert angezeigt wird
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="action"></param>
         public void ChangeChart(object sender, string action)
         {
-            
-            switch (action)
+            if (_data.Count == 0)
             {
-                case "covidCases":
-                    //foreach (var item in _data[0])
-                    //{
-                    
-                    //}
-                break;
-
-                case "Deaths":
-                
-                break;
-
-                case "Tests":
-
-                break;
-
-                case "IntensiveStation":
-
-                break;
-
-                case "Recovered":
-
-                break;
-
-                default:
-                    break;
+                MessageBox.Show("Sie müssen ein Bundesland auswählen!");
             }
+            else
+            {
+                UpdateView?.Invoke(sender, _data);
+            }
+            
         }
     }
 }

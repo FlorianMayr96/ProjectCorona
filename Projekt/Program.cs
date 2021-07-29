@@ -17,18 +17,17 @@ namespace Projekt
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-
-            IView mainView = new MainView();
-            MainModel mainModel = new MainModel();
             
 
-
+            //Instanzieren von den benötigten Objekten und übergaben an die Presenter
+            IView mainView = new MainView();            
+            MainModel mainModel = new MainModel();
             ConfigView configView = new ConfigView();
             ConfigModel model = new ConfigModel();
             ConfigPresenter configPresenter = new ConfigPresenter(configView, model);
-
             MainPresenter mainpresenter = new MainPresenter(mainView,mainModel,configPresenter);
 
+            // Die mainView wird angezeigt
             mainpresenter.Initialize();
            
             Application.Run();

@@ -8,10 +8,14 @@ namespace Projekt
 {
     public interface IView
     {
+        //Events
         event EventHandler<string> SwitchChart;
         event EventHandler ShowConfigView;
 
-        void UpdateChart(List<List<string[]>> data);
+        //Der Chartverlauf wird in der MainView gezeichnet
+        void UpdateChart(List<List<Model.AllData>> data);
+
+        //Es wird die MainView angezeigt
         void Show();
 
     }

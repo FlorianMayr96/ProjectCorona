@@ -42,16 +42,15 @@ namespace Projekt
             // tbCountryInput
             // 
             this.tbCountryInput.Location = new System.Drawing.Point(32, 32);
-            this.tbCountryInput.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbCountryInput.Margin = new System.Windows.Forms.Padding(2);
             this.tbCountryInput.Name = "tbCountryInput";
             this.tbCountryInput.Size = new System.Drawing.Size(507, 22);
             this.tbCountryInput.TabIndex = 0;
-            
             // 
             // btnJoin
             // 
             this.btnJoin.Location = new System.Drawing.Point(337, 84);
-            this.btnJoin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnJoin.Margin = new System.Windows.Forms.Padding(2);
             this.btnJoin.Name = "btnJoin";
             this.btnJoin.Size = new System.Drawing.Size(213, 43);
             this.btnJoin.TabIndex = 2;
@@ -62,7 +61,7 @@ namespace Projekt
             // btnDelete
             // 
             this.btnDelete.Location = new System.Drawing.Point(337, 156);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(2);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(213, 43);
             this.btnDelete.TabIndex = 3;
@@ -73,7 +72,7 @@ namespace Projekt
             // btnImport
             // 
             this.btnImport.Location = new System.Drawing.Point(337, 227);
-            this.btnImport.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnImport.Margin = new System.Windows.Forms.Padding(2);
             this.btnImport.Name = "btnImport";
             this.btnImport.Size = new System.Drawing.Size(213, 43);
             this.btnImport.TabIndex = 4;
@@ -84,7 +83,7 @@ namespace Projekt
             // btnClose
             // 
             this.btnClose.Location = new System.Drawing.Point(337, 472);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(2);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(213, 43);
             this.btnClose.TabIndex = 5;
@@ -95,7 +94,7 @@ namespace Projekt
             // btnRefresh
             // 
             this.btnRefresh.Location = new System.Drawing.Point(337, 294);
-            this.btnRefresh.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnRefresh.Margin = new System.Windows.Forms.Padding(2);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(213, 43);
             this.btnRefresh.TabIndex = 7;
@@ -113,14 +112,13 @@ namespace Projekt
             this.listViewCountries.GridLines = true;
             this.listViewCountries.HideSelection = false;
             this.listViewCountries.Location = new System.Drawing.Point(32, 68);
-            this.listViewCountries.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.listViewCountries.Margin = new System.Windows.Forms.Padding(2);
             this.listViewCountries.MultiSelect = false;
             this.listViewCountries.Name = "listViewCountries";
             this.listViewCountries.Size = new System.Drawing.Size(273, 469);
             this.listViewCountries.TabIndex = 8;
             this.listViewCountries.UseCompatibleStateImageBehavior = false;
             this.listViewCountries.View = System.Windows.Forms.View.Details;
-           
             // 
             // ColCountries
             // 
@@ -139,9 +137,11 @@ namespace Projekt
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnJoin);
             this.Controls.Add(this.tbCountryInput);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ConfigView";
             this.Text = "ConfigView";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ConfigView_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ConfigView_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 

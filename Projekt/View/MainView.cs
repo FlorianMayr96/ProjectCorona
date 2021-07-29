@@ -15,35 +15,45 @@ namespace Projekt
 {
     public partial class MainView : Form,IView
     {
+        //memberVariable. 
+        //Beim klicken eines Buttens wird diese Variable überschrieben, 
+        //damit die Methode "UpdateChart"weiß was der Benutzer angeklickt hat um die richtigen daten aus der Liste zu filtern.
+        string ChartCase;
+
+        
         public MainView()
         {
             InitializeComponent();
         }
-
+        
+        //Events
         public event EventHandler<string> SwitchChart;
         public event EventHandler ShowConfigView;
 
-        public void UpdateChart(List<List<string[]>> data)
+    
+        /// <summary>
+        /// Es wird eine Liste mit den ausgewählten Bundesländern übergeben und dann in der MainView in dem Chart angezeigt
+        /// </summary>
+        /// <param Liste mit den ausgewählten Bundesländern ="data"></param>
+        public void UpdateChart(List<List<Model.AllData>> data)
         {
-
-            // Das List Array wird übergeben, es muss noch statt double[] ein Objekt eingesetzt werden!!
+            //löscht den angezeigten Chart
             Chart.Series.Clear();
             Chart.AxisX.Clear();
             Chart.AxisY.Clear();
 
+            //die Legende wird rechts Platziert
             Chart.LegendLocation = LegendLocation.Right;
 
+            // es wird die x - Achse gezeichnet
             List<string> xAxis = new List<string>();
-
-
-            // x-Achse
-
-            for (int i = 0; i < data[0][0].Length; i++)
+            int j = 0;
+            foreach (var item in data[0])
             {
-                xAxis.Add(data[0][0][i]);
+                string[] temp = data[0][j].date.ToString().Split(' ');
+                xAxis.Add(temp[0]);
+                j++;
             }
-
-
 
             Chart.AxisX.Add(new LiveCharts.Wpf.Axis
             {
@@ -53,24 +63,62 @@ namespace Projekt
 
             });
 
+
+            //Die y-Achse wird gezeichnet
             Chart.AxisY.Add(new LiveCharts.Wpf.Axis
             {
                 Title = "Cases"
             });
 
             int x = 0;
-
             foreach (var item in data)
             {
                 List<double> yValues = new List<double>();
 
-                for (int i = 0; i < data[x][0].Length; i++)
+                switch (ChartCase)
                 {
-                    yValues.Add(double.Parse(data[x][0][i]));
+                    case "CovidCases":
+                        foreach (var cases in data[x])
+                        {
+                            yValues.Add(cases.confirmedCases);
+                        }
+                        break;
+
+                    case "Deaths":
+                        foreach (var cases in data[x])
+                        {
+                            yValues.Add(cases.deaths);
+                        }
+                        break;
+
+                    case "Tests":
+                        foreach (var cases in data[x])
+                        {
+                            yValues.Add(cases.tests);
+                        }
+                        break;
+
+                    case "IntensiveStation":
+                        foreach (var cases in data[x])
+                        {
+                            yValues.Add(cases.intensiveCareUnit);
+                        }
+                        break;
+
+                    case "Recovered":
+                        foreach (var cases in data[x])
+                        {
+                            yValues.Add(cases.recoverd);
+                        }
+                        break;
+
+                    default:
+                        break;
                 }
+
                 var series = new LineSeries()
                 {
-                    Title = "OÖ",
+                    Title = data[x][0].country,
                     Values = new ChartValues<double>(yValues),
 
                 };
@@ -78,58 +126,50 @@ namespace Projekt
                 x++;
             }
 
-        }
+    }
 
+       
+        //BtnClick Coronafälle
         private void btn_CovidCases_Click(object sender, EventArgs e)
         {
-            //nur zum Testen!!
-            string[] asdf = new string[5];
-            asdf[0] = "1";
-            asdf[1] = "2";
-            asdf[2] = "3";
-            asdf[3] = "4";
-            asdf[4] = "5";
-            List<string[]> OÖ = new List<string[]>();
-            OÖ.Add(asdf);
-            string[] a = new string[5];
-            a[0] = "3";
-            a[1] = "4";
-            a[2] = "55";
-            a[3] = "6";
-            a[4] = "7";
-            List<string[]> NÖ = new List<string[]>();
-            NÖ.Add(a);
-            List<List<string[]>> data = new List<List<string[]>>();
-            data.Add(OÖ);
-            data.Add(NÖ);
-
-
-            
-            SwitchChart?.Invoke(sender,"CovidCases");
-
-
+            ChartCase = "CovidCases";
+            SwitchChart?.Invoke(sender,"CovidCases");  
         }
 
+        // BtnClick CoronaTote
         private void btn_Deaths_Click(object sender, EventArgs e)
         {
+            ChartCase = "Deaths";
             SwitchChart?.Invoke(sender, "Deaths");
-
+            
         }
+
+        // BtnClick Tests
 
         private void btn_Tests_Click(object sender, EventArgs e)
         {
+            ChartCase = "Tests";
             SwitchChart?.Invoke(sender, "Tests");
         }
+  
+        // BtnClick IntensiveStation
 
         private void btn_IntensiveStation_Click(object sender, EventArgs e)
         {
+            ChartCase = "IntensiveStation";
             SwitchChart?.Invoke(sender, "IntensiveStation");
         }
 
+        //BtnClick Genesene Personen
+
+
         private void btn_Recovered_Click(object sender, EventArgs e)
         {
+            ChartCase = "Recovered";
             SwitchChart?.Invoke(sender, "Recovered");
         }
+
+        // BtnClick aufruf der ConfigView
 
         private void btn_Config_Click(object sender, EventArgs e)
         {
