@@ -60,7 +60,9 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\downloader.cs" />
     <Compile Include="IView.cs" />
+    <Compile Include="Model\AllData.cs" />
     <Compile Include="Model\ConfigModel.cs" />
     <Compile Include="Presenter\ConfigPresenter.cs" />
     <Compile Include="View\ConfigView.cs">
@@ -88,6 +90,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\ConfigView.resx">
+      <DependentUpon>ConfigView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\MainView.resx">
       <DependentUpon>MainView.cs</DependentUpon>
     </EmbeddedResource>

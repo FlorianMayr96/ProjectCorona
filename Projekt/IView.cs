@@ -12,6 +12,7 @@ namespace Projekt
         event EventHandler ShowConfigView;
 
         void UpdateChart(List<List<string[]>> data);
+        void Show();
 
     }
 }

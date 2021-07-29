@@ -20,7 +20,7 @@ namespace Projekt
 
             IView mainView = new MainView();
             MainModel mainModel = new MainModel();
-            ConfigPresenter configPresenter = new ConfigPresenter();
+            
 
 
             ConfigView configView = new ConfigView();
@@ -29,8 +29,10 @@ namespace Projekt
 
             MainPresenter mainpresenter = new MainPresenter(mainView,mainModel,configPresenter);
 
-
-            Application.Run(new MainView());
+            mainpresenter.Initialize();
+           
+            Application.Run();
+            
         }
     }
 }
