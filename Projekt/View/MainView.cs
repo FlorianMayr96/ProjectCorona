@@ -67,7 +67,7 @@ namespace Projekt
             //Die y-Achse wird gezeichnet
             Chart.AxisY.Add(new LiveCharts.Wpf.Axis
             {
-                Title = "Cases"
+                Title = ChartCase
             });
 
             int x = 0;
