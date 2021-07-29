@@ -23,6 +23,10 @@ namespace Projekt
             ConfigPresenter configPresenter = new ConfigPresenter();
 
 
+            ConfigView configView = new ConfigView();
+            ConfigModel model = new ConfigModel();
+            ConfigPresenter configPresenter = new ConfigPresenter(configView, model);
+
             MainPresenter mainpresenter = new MainPresenter(mainView,mainModel,configPresenter);
 
 
