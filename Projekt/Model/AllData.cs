@@ -8,6 +8,9 @@ namespace Projekt.Model
 {
     public class AllData
     {
+        /// <summary>
+        /// dekleration aller Eigenschaften die die Csv liefert
+        /// </summary>
         public DateTime date { get; }
         public int Id { get; }
         public string country { get; }
@@ -19,6 +22,10 @@ namespace Projekt.Model
         public double tests { get; }
         public double testsPCR { get; }
         public double testsAntigen { get; }
+        /// <summary>
+        /// Konstruktor für Beschreibung der Eigenschaften
+        /// </summary>
+        /// <param name="data"></param>
         public AllData(string[] data)
         {
             date = DateTime.Parse(data[0]);

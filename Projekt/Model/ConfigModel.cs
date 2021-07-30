@@ -9,6 +9,9 @@ namespace Projekt
 {
     public class ConfigModel
     {
+        /// <summary>
+        /// Anlegen der Listen pro Bundesland
+        /// </summary>
         private List<AllData> burgenland;
         private List<AllData> carinthia;
         private List<AllData> lowerAustria;
@@ -19,8 +22,13 @@ namespace Projekt
         private List<AllData> vorarlberg;
         private List<AllData> vienna;
         private List<AllData> austria;
+        /// <summary>
+        /// Temporäre Liste für Methode FindListForExport
+        /// </summary>
         private List<List<AllData>> tempList;
-
+        /// <summary>
+        /// Konstruktur für initiaisieren der Listen
+        /// </summary>
         public ConfigModel()
         {
             burgenland = new List<AllData>();
@@ -35,6 +43,10 @@ namespace Projekt
             austria = new List<AllData>();
             tempList = new List<List<AllData>>();
         }
+        /// <summary>
+        /// Methode für Filtern der Gesamten Daten in die Jeweiligen Bundesländer
+        /// </summary>
+        /// <param name="allData"></param>
         public void organizeAndSafe(AllData allData)
         {
             if (allData.Id == 1)
@@ -79,6 +91,11 @@ namespace Projekt
             }
 
         }
+        /// <summary>
+        /// Methode für Festellen der Existenze
+        /// </summary>
+        /// <param name="text"></param>
+        /// <returns></returns>
         public bool existence(string text)
         {
             if (text == burgenland[0].country || text == carinthia[0].country ||
@@ -95,6 +112,11 @@ namespace Projekt
                 return false;
             }
         }
+        /// <summary>
+        /// Methode zum Suchen der gewünschten Daten für die MainView
+        /// </summary>
+        /// <param name="countryList"></param>
+        /// <returns></returns>
         public List<List<AllData>> findListForExport(List<string> countryList)
         {
             tempList.Clear();
@@ -144,6 +166,9 @@ namespace Projekt
             return tempList;
 
         }
+        /// <summary>
+        /// Methode zum leeren der Listen
+        /// </summary>
         public void Clear()
         {
             if (burgenland != null)

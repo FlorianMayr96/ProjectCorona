@@ -15,23 +15,35 @@ namespace Projekt
         downloader downloader = new downloader();
         private ConfigModel _model;
         public event EventHandler<List<List<AllData>>> exportToMain;
+        /// <summary>
+        /// initialisierung der view und vom model und beschreiben der Events
+        /// </summary>
+        /// <param name="configView"></param>
+        /// <param name="model"></param>
         public ConfigPresenter(ConfigView configView, ConfigModel model)
         {
             _configView = configView;
             configView.addCountry += addCountry;
-            configView.deleteCountry += deleteCountry;
             configView.Import += import;
             configView.closeView += close;
             configView.refresh += refresh;
             _model = model;
         }
-
+        /// <summary>
+        /// eventmethode für die Übergabe zum mainpresenter
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void import(object sender, List<string> e)
         {
             dataForMain = _model.findListForExport(e);
             exportToMain?.Invoke(this, dataForMain);
         }
-
+        /// <summary>
+        /// eventmethode für aktualisieren. Hier werden alle daten gefiltert und gespeichert
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void refresh(object sender, string e)
         {
             int i = 0;
@@ -44,6 +56,7 @@ namespace Projekt
                 string[] temp = downloader.Split(allData, i);
                 if (i != 0)
                 {
+
                     AllData all = new AllData(temp);
                     _model.organizeAndSafe(all);
                 }
@@ -51,23 +64,32 @@ namespace Projekt
             }
         }
 
-        private void deleteCountry(object sender, int e)
+       /* private void deleteCountry(object sender, int e)
         {
             throw new NotImplementedException();
-        }
+        }*/
 
+        /// <summary>
+        /// eventmethode für verstecken der View
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void close(object sender, EventArgs e)
         {
             _configView.Hide();
         }
 
 
-
+        /// <summary>
+        /// Hinzufügen von einenm Eingegebenen Bundesland zur ListView
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
 
         private void addCountry(object sender, string e)
         {
 
-
+            // Überprüfung von Existenz in den Daten und vorhandensein in der Listview
             if (_model.existence(e) == true && _configView.AproveExistInListView(e) == false)
             {
                 _configView.UpdateText(e);
@@ -76,7 +98,7 @@ namespace Projekt
             {
                 if (_model.existence(e) == false)
                 {
-
+                    // Öffnet Fehlerfenster
                     _configView.notExistsMessage();
                 }
             }
@@ -84,11 +106,16 @@ namespace Projekt
 
 
         }
-
+        /// <summary>
+        /// Methode für Öffnen der View
+        /// </summary>
         public void openView()
         {
             _configView.Show();
         }
+        /// <summary>
+        /// für testzwecke
+        /// </summary>
         public void InitializeConfig()
         {
             _configView.Show();
